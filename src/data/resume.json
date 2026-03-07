@@ -1,0 +1,136 @@
+{
+  "basics": {
+    "name": "RAJ SINDHAV",
+    "title": "Senior QA Engineer | AI-Enhanced Testing | ISTQB Certified",
+    "summary": "\"ISTQB Certified Senior QA Engineer with 6+ years of experience, currently focused on integrating Generative AI into software testing workflows to maximize efficiency and coverage. I combine traditional testing methodologies with AI-driven strategies to accelerate the Software Testing Life Cycle (STLC). How I Deliver Value: AI-Assisted Testing: Leveraging LLMs to rapidly generate test scenarios, edge cases, and sample data, reducing test design time significantly. Core QA Expertise: Strong foundation in Manual and Automation testing (TestComplete/Jira), Regression testing, and UI/UX validation. Leadership: proven track record as a Team Lead (SpryBit), mentoring teams on adopting modern tools to improve defect detection rates. Domain Knowledge: Specialized experience in Healthcare IT (eClinicalWorks) and Fintech. I believe AI isn't replacing testers; it's empowering those who use it to deliver higher quality software, faster.\"",
+    "location": "Ahmedabad, Gujarat, India",
+    "email": "rajsindhav77@gmail.com",
+    "phone": "9825253982",
+    "links": [
+      "www.linkedin.com/in/rajsindhav"
+    ]
+  },
+  "experience": [
+    {
+      "company": "eClinicalWorks",
+      "role": "QA Software Tester",
+      "dates": "April 2023 - Present (3 years)",
+      "location": "Ahmedabad, Gujarat, India",
+      "bullets": []
+    },
+    {
+      "company": "SpryBit",
+      "role": "Software QA Team Lead (Manual)",
+      "dates": "January 2022 - March 2023 (1 year 3 months)",
+      "location": "Ahmedabad, Gujarat, India",
+      "bullets": []
+    },
+    {
+      "company": "SpryBit",
+      "role": "Sr. Quality Analyst (Manual)",
+      "dates": "July 2022 - January 2023 (7 months)",
+      "location": "Ahmedabad, Gujarat, India",
+      "bullets": []
+    },
+    {
+      "company": "SpryBit",
+      "role": "Software Test Engineer",
+      "dates": "January 2022 - June 2022 (6 months)",
+      "location": "Ahmedabad, Gujarat, India",
+      "bullets": []
+    },
+    {
+      "company": "StayinFront",
+      "role": "Software Test Engineer",
+      "dates": "September 2020 - January 2022 (1 year 5 months)",
+      "location": "gandhinagar",
+      "bullets": []
+    },
+    {
+      "company": "StayinFront",
+      "role": "Trainee - Software Test Engineer",
+      "dates": "February 2020 - September 2020 (8 months)",
+      "location": "Gandhinagar, Gujarat, India",
+      "bullets": []
+    },
+    {
+      "company": "CRB Tech Solutions Pvt. Ltd",
+      "role": "Quality Assurance Engineer",
+      "dates": "November 2019 - February 2020 (4 months)",
+      "location": "Ahmedabad Area, India",
+      "bullets": [
+        "Corporate Training"
+      ]
+    },
+    {
+      "company": "RUCHI SOYA INDUSTRIES LTD",
+      "role": "Internship Trainee",
+      "dates": "October 2017 - November 2017 (2 months)",
+      "location": "kachchh",
+      "bullets": [
+        "Industrial Training"
+      ]
+    }
+  ],
+  "achievements": [],
+  "projects": [],
+  "skills": [
+    {
+      "group": "Top Skills",
+      "skills": ["Visual Studio", "Node.js", "Copilot Agent Builder"]
+    },
+    {
+      "group": "QA & Testing",
+      "skills": [
+        "Functional Testing (Android, IOS and Web)",
+        "Blackbox Testing (Android, IOS and Web)"
+      ]
+    },
+    {
+      "group": "AI & Prompt Engineering",
+      "skills": [
+        "AI-assisted Testing",
+        "Prompt Engineering",
+        "Generative AI for testing",
+        "Testcase Generation"
+      ]
+    },
+    {
+      "group": "Tools & Domain",
+      "skills": [
+        "TestComplete basics",
+        "Playwright Codex basics",
+        "Jira",
+        "Electronic Medical Record (EMR)",
+        "Sourcetree",
+        "Bitbucket"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Birla Vishvakarma Mahavidyalaya",
+      "degree": "Bachelor's degree, Electronics and Communication",
+      "dates": "January 2015 - January 2020"
+    },
+    {
+      "institution": "GNSE",
+      "degree": "11th and 12th, Science",
+      "dates": "2013 - 2015"
+    },
+    {
+      "institution": "Shree Swaminarayan Vidhyalaya",
+      "degree": "10th, Gujarat board",
+      "dates": "2011 - 2012"
+    }
+  ],
+  "certifications": [
+    "ISTQB® Foundation Level"
+  ],
+  "awards": [],
+  "extra": [
+    "Manual & Automation basics (TestComplete)",
+    "Leveraging GenAI for Test Efficiency",
+    "Team Lead Experience"
+  ]
+}
