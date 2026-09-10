@@ -10,7 +10,7 @@ A custom-built, interactive web resume designed to showcase my professional back
 
 ### 🌐 Live Preview
 You can view the live interactive version of this resume here: 
-**[Paste your GitHub Pages link here, e.g., https://rajsindhav.github.io/Raj_Sindhav_QA/]**
+**[https://rajsindhav.github.io/Raj_Sindhav_QA-Interactive-Resume/]**
 
 ### 🛠️ Built With
 *   **HTML5:** Semantic structure for accessibility.
