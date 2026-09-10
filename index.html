@@ -3,262 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raj Sindhav - Interactive Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Raj Sindhav - Senior QA Engineer | AI Architect | Innovator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00f2fe;
-            --secondary: #4facfe;
-            --text-main: #ffffff;
-            --text-muted: #e0e0e0;
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --bg-color: #09090b;
+            --zinc-bg: #18181b;
+            --zinc-border: rgba(255, 255, 255, 0.08);
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --primary: #2dd4bf; /* Teal */
+            --secondary: #a855f7; /* Purple */
+            --accent-gradient: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 15px; }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
             overflow-x: hidden;
-            /* Animated Gradient Background */
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f2027, #203a43, #2c5364);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            position: relative;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Subtle Background Static Grain Effect */
+        body::before {
+            content: '';
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PGZpbHRlciBpZD0iaSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOSIgbnVtT2N0YXZlcz0iMiIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNpKSIgb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==');
+            opacity: 0.2; pointer-events: none; z-index: -1;
         }
 
-        header {
-            text-align: center;
-            padding: 4rem 1rem 3rem;
-            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), transparent);
+        /* Fixed Navigation */
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            background: rgba(9, 9, 11, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--zinc-border); padding: 10px 25px; border-radius: 50px; z-index: 1000;
+            display: flex; gap: 20px; opacity: 0; animation: slideDown 0.8s ease-out forwards 0.2s;
         }
 
-        h1 {
-            font-size: 3rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        nav a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease; }
+        nav a:hover { color: var(--primary); }
 
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-        }
+        @keyframes slideDown { from { transform: translate(-50%, -20px); opacity: 0; } to { transform: translate(-50%, 0); opacity: 1; } }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            font-size: 0.95rem;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: text-shadow 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            text-shadow: 0 0 8px var(--primary);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1rem 4rem;
-        }
-
-        /* Glassmorphism Cards */
-        .section-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        /* Lists and Typography */
-        ul { margin-top: 1rem; padding-left: 1.2rem; }
-        li { margin-bottom: 0.8rem; color: var(--text-muted); }
-        strong { color: #fff; font-weight: 600; }
+        /* Hero Section */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-top: 80px; }
+        h1 { font-size: clamp(3.5rem, 9vw, 6rem); font-weight: 700; line-height: 1.05; margin-bottom: 25px; text-transform: uppercase; }
+        .gradient-text { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 1.6rem; color: var(--text-muted); margin-bottom: 40px; max-width: 750px; font-weight: 300; }
         
-        .job-title { font-weight: 600; font-size: 1.2rem; color: var(--primary); margin-top: 1.5rem; }
-        .job-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic; opacity: 0.8; }
+        .contact-links { display: flex; gap: 15px; flex-wrap: wrap; }
+        .contact-links a { padding: 12px 28px; border-radius: 30px; text-decoration: none; font-weight: 500; border: 1px solid var(--zinc-border); color: var(--text-main); background: var(--zinc-bg); transition: all 0.3s ease; }
+        .contact-links a:hover { background: var(--primary); color: #000; border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(45, 212, 191, 0.3); }
+        .contact-links a.primary-btn { background: var(--primary); color: #000; border-color: var(--primary); }
+        .contact-links a.primary-btn:hover { background: #fff; border-color: #fff; box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2); }
 
-        /* Skill Tags */
-        .skills-group { margin-bottom: 1.5rem; }
-        .skills-group strong { display: block; margin-bottom: 0.8rem; font-size: 1.1rem; }
-        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tags span {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-        .tags span:hover {
-            background: var(--primary);
-            color: #000;
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
+        /* Sections General */
+        section { padding: 100px 0; border-top: 1px solid var(--zinc-border); position: relative; }
+        .section-title { font-size: 2.8rem; margin-bottom: 60px; font-weight: 700; text-transform: uppercase; }
 
-        /* Scroll Reveal Animation Classes */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
+        /* Bento Summary Card */
+        .summary-card { background: var(--zinc-bg); border: 1px solid var(--zinc-border); border-radius: 24px; padding: 45px; font-size: 1.15rem; color: var(--text-muted); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .summary-card strong { color: var(--text-main); font-weight: 600; }
+        .summary-card p { margin-bottom: 20px; }
+        .summary-card ul { padding-left: 20px; margin-bottom: 25px; list-style-type: '⚡'; }
+        .summary-card li { margin-bottom: 12px; padding-left: 10px; }
+
+        /* Timeline (Experience) */
+        .timeline { position: relative; padding-left: 35px; border-left: 2px solid var(--zinc-border); }
+        .timeline-item { position: relative; margin-bottom: 60px; opacity: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -43px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent-gradient); box-shadow: 0 0 15px var(--primary); transition: all 0.3s ease; }
+        .timeline-item:hover::before { transform: scale(1.3); box-shadow: 0 0 25px var(--primary); }
+
+        .timeline-date { font-size: 0.95rem; color: var(--primary); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .timeline-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 5px; }
+        .timeline-company { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; font-weight: 400; font-style: italic; }
+        
+        .timeline-content ul { padding-left: 20px; color: var(--text-muted); list-style-type: '>'; }
+        .timeline-content li { margin-bottom: 10px; padding-left: 8px; }
+
+        /* Bento Grid (Projects & Extras) */
+        .bento-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .bento-card { background: var(--zinc-bg); border: 1px solid var(--zinc-border); border-radius: 24px; padding: 35px; transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease; opacity: 0; }
+        
+        .bento-card:hover { transform: translateY(-8px); background: rgba(255, 255, 255, 0.05); border-color: rgba(45, 212, 191, 0.3); }
+
+        .bento-card h3 { font-size: 1.4rem; margin-bottom: 18px; color: var(--text-main); font-weight: 600; text-transform: uppercase; }
+        .bento-card p { color: var(--text-muted); margin-bottom: 25px; font-size: 1rem; font-weight: 300; }
+
+        /* Tech Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+        .tags span { background: rgba(45, 212, 191, 0.05); padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; color: var(--primary); border: 1px solid rgba(45, 212, 191, 0.2); transition: all 0.3s ease; cursor: default; }
+        .tags span:hover { background: var(--primary); color: #000; box-shadow: 0 0 10px rgba(45, 212, 191, 0.5); transform: scale(1.05); }
+
+        /* Staggered Scroll Reveal Classes */
+        .reveal { opacity: 0; transform: translateY(50px) scale(0.95) blur(5px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); will-change: transform, opacity, filter; }
+        .reveal.active { opacity: 1; transform: translateY(0) scale(1) blur(0); }
+
+        /* Specific Staggering Delays via JS, handled in CSS */
+        .reveal-item { opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active .reveal-item { opacity: 1; transform: translateY(0); }
+
+        /* Responsive Fixes */
+        @media (max-width: 768px) {
+            html { font-size: 14px; }
+            h1 { font-size: 2.8rem; }
+            nav { width: 95%; justify-content: center; padding: 10px 15px; gap: 10px; }
+            nav a { font-size: 0.8rem; }
+            section { padding: 70px 0; }
+            .section-title { font-size: 2.2rem; margin-bottom: 40px; }
+            .timeline { padding-left: 20px; }
+            .timeline-item::before { left: -28px; }
+            .summary-card { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="reveal">
-        <h1>RAJ SINDHAV</h1>
-        <div class="subtitle">Senior QA Engineer | AI-Enhanced Testing | ISTQB Certified</div>
-        <div class="contact-info">
-            <span>📍 Ahmedabad, India</span>
-            <a href="mailto:rajsindhav77@gmail.com">✉️ rajsindhav77@gmail.com</a>
-            <span>📞 +91 9825253982</span>
-            <a href="https://www.linkedin.com/in/rajsindhav" target="_blank">🔗 LinkedIn</a>
-        </div>
-    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Technical Edge</a>
+        <a href="#experience">Career Archive</a>
+        <a href="#projects">Systems & Innovations</a>
+    </nav>
 
     <div class="container">
         
-        <section class="section-card reveal">
-            <h2>Professional Summary</h2>
-            <p style="color: var(--text-muted); margin-bottom: 1rem;">ISTQB Certified Senior QA Engineer with 6+ years of experience, currently focused on integrating Generative AI into software testing workflows to maximize efficiency and coverage. I combine traditional testing methodologies with AI-driven strategies to accelerate the Software Testing Life Cycle (STLC).</p>
-            <p><strong>How I Deliver Value:</strong></p>
-            <ul>
-                <li><strong>AI-Assisted Testing:</strong> Leveraging LLMs to rapidly generate test scenarios, edge cases, and sample data, reducing test design time significantly.</li>
-                <li><strong>Core QA Expertise:</strong> Strong foundation in Manual and Automation testing (TestComplete/Jira), Regression testing, and UI/UX validation.</li>
-                <li><strong>Leadership:</strong> Proven track record as a Team Lead, mentoring teams on adopting modern tools to improve defect detection rates.</li>
-                <li><strong>Domain Knowledge:</strong> Specialized experience in Healthcare IT (Electronic Medical Records) and Fintech.</li>
-            </ul>
-        </section>
-
-        <section class="section-card reveal">
-            <h2>Technical Edge</h2>
-            
-            <div class="skills-group">
-                <strong>Top Skills & AI Prompt Engineering</strong>
-                <div class="tags">
-                    <span>AI-assisted Testing</span> <span>Prompt Engineering</span> <span>Generative AI for testing</span> <span>Testcase Generation</span> <span>Copilot Agent Builder</span> <span>Node.js</span> <span>Visual Studio</span>
-                </div>
+        <header id="home" class="reveal">
+            <h1 class="reveal-item">RAJ <br><span class="gradient-text">SINDHAV</span></h1>
+            <div class="subtitle reveal-item">Senior QA Engineer, AI-Enhanced Testing Architect & Systems Innovator. ISTQB-FL Certified. Ahmedabad, India.</div>
+            <div class="contact-links reveal-item">
+                <a href="#projects" class="primary-btn">Explore Engineering ↓</a>
+                <a href="mailto:rajsindhav77@gmail.com">rajsindhav77@gmail.com</a>
+                <a href="https://www.linkedin.com/in/rajsindhav" target="_blank">LinkedIn</a>
             </div>
+        </header>
 
-            <div class="skills-group">
-                <strong>QA, Testing & Methodologies</strong>
+        <section id="about" class="reveal">
+            <h2 class="section-title reveal-item">Technical Edge</h2>
+            <div class="summary-card reveal-item">
+                <p>ISTQB Certified Senior QA Engineer with 6+ years of specialized experience in software quality assurance. My primary focus is on integrating advanced **Generative AI** and prompt engineering directly into testing workflows to maximize defect detection efficiency and coverage, accelerating the Software Testing Life Cycle (STLC).</p>
+                
+                <p><strong>How I Deliver Value:</strong></p>
+                <ul>
+                    <li><strong>AI-Assisted Testing:</strong> Leveraging Large Language Models (LLMs) and tools like **Copilot Agent Builder** to rapidly generate robust test scenarios, edge cases, and representative sample data, reducing manual test design time significantly.</li>
+                    <li><strong>End-to-End Core QA:</strong> Strong expertise in Detailed manual validation, basic automation framework development (**TestComplete/Node.js/Jira**), regression testing, and **UI/UX verification**.</li>
+                    <li><strong>Leadership & Mentorship:</strong> Proven track record as a Team Lead (**SpryBit**), guiding and mentoring QA teams on adopting modern tools, efficient defect management processes, and Agile methodologies.</li>
+                    <li><strong>Domain Knowledge:</strong> Specialized validation experience within complex Healthcare IT (**EMR** Systems) and Fintech environments.</li>
+                </ul>
+                <p><em>"AI isn't replacing testers; it's empowering those who use it to deliver higher quality software, faster."</em></p>
+                
                 <div class="tags">
-                    <span>Functional Testing (Android/iOS/Web)</span> <span>Blackbox Testing (Android/iOS/Web)</span> <span>Manual & Automation Basics</span> <span>Regression Testing</span> <span>UI/UX Validation</span>
-                </div>
-            </div>
-
-            <div class="skills-group">
-                <strong>Tools & Domains</strong>
-                <div class="tags">
-                    <span>Jira</span> <span>TestComplete basics</span> <span>Playwright Codex basics</span> <span>Sourcetree</span> <span>Bitbucket</span> <span>EMR Systems</span>
+                    <span>Generative AI Testing</span> <span>Prompt Engineering</span> <span>Copilot Agent Builder</span> <span>Jira</span> <span>Node.js</span> <span>UI/UX</span> <span>TestComplete</span> <span>Playwright Codex</span> <span>Healthcare IT (EMR)</span>
                 </div>
             </div>
         </section>
 
-        <section class="section-card reveal">
-            <h2>Experience Archive</h2>
-            
-            <div>
-                <div class="job-title">QA Software Tester | eClinicalWorks</div>
-                <div class="job-meta">Ahmedabad, Gujarat, India | April 2023 - Present</div>
-                <ul>
-                    <li>Specialized in Healthcare IT, validating Electronic Medical Record (EMR) systems.</li>
-                    <li>Integrated modern QA workflows to ensure high reliability and compliance in healthcare software.</li>
-                </ul>
-            </div>
+        <section id="experience" class="reveal">
+            <h2 class="section-title reveal-item">Career Archive</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item reveal">
+                    <div class="timeline-date reveal-item">April 2023 - Present</div>
+                    <div class="timeline-title reveal-item">QA Software Tester</div>
+                    <div class="timeline-company reveal-item">eClinicalWorks | Ahmedabad, India</div>
+                    <div class="timeline-content reveal-item">
+                        <ul>
+                            <li>Specialized in Healthcare IT, validating complex Electronic Medical Record (EMR) systems.</li>
+                            <li>Integrated modern QA workflows to ensure high reliability and compliance in sensitive healthcare application environments.</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div>
-                <div class="job-title">Software QA Team Lead (Manual) | SpryBit</div>
-                <div class="job-meta">Ahmedabad, Gujarat, India | Jan 2022 - March 2023</div>
-                <ul>
-                    <li>Led QA teams and mentored members on adopting modern tools to improve defect detection rates.</li>
-                    <li>Promoted from Software Test Engineer to Sr. Quality Analyst, and ultimately to Team Lead, demonstrating rapid mastery of test strategies.</li>
-                </ul>
-            </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-date reveal-item">January 2022 - March 2023</div>
+                    <div class="timeline-title reveal-item">Software QA Team Lead (Manual)</div>
+                    <div class="timeline-company reveal-item">SpryBit | Ahmedabad, India</div>
+                    <div class="timeline-content reveal-item">
+                        <ul>
+                            <li>Promoted rapidly from Software Test Engineer to Sr. Quality Analyst, and ultimately Team Lead.</li>
+                            <li>Led dedicated QA teams and mentored members on adopting modern tools (like Jira/TestComplete) and efficient Agile testing processes for enhanced defect mitigation.</li>
+                        </ul>
+                    </div>
+                </div>
 
-            <div>
-                <div class="job-title">Software Test Engineer | StayinFront</div>
-                <div class="job-meta">Gandhinagar, Gujarat, India | Sept 2020 - Jan 2022</div>
-                <ul>
-                    <li>Transitioned from Trainee to full Test Engineer, driving functional and blackbox testing across mobile (Android/iOS) and web platforms.</li>
-                </ul>
+                <div class="timeline-item reveal">
+                    <div class="timeline-date reveal-item">September 2020 - January 2022</div>
+                    <div class="timeline-title reveal-item">Software Test Engineer</div>
+                    <div class="timeline-company reveal-item">StayinFront | Gandhinagar, India</div>
+                    <div class="timeline-content reveal-item">
+                        <ul>
+                            <li>Transitioned from Trainee to full Test Engineer, driving comprehensive functional, blackbox, and usability testing across Android, iOS, and web platforms.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section class="section-card reveal">
-            <h2>Education & Credentials</h2>
-            <ul>
-                <li><strong>ISTQB® Foundation Level Certified</strong></li>
-                <li><strong>Bachelor's degree, Electronics and Communication</strong> - Birla Vishvakarma Mahavidyalaya (Jan 2015 - Jan 2020)</li>
-                <li><strong>Higher Secondary (Science)</strong> - GNSE (2013 - 2015)</li>
-            </ul>
+        <section id="projects" class="reveal">
+            <h2 class="section-title reveal-item">Systems & Innovations</h2>
+            <div class="bento-grid">
+                
+                <div class="bento-card reveal">
+                    <div class="reveal-item">
+                        <h3>VEDA - Local-First AI Agent</h3>
+                        <p>Architected a hardware-sovereign AI assistant operating entirely offline. Built using Python and locally deployed Large Language Models (LLMs) (e.g., Llama-3-8B). Focused on advanced local speech-to-text (Whisper), real-time task automation, and locally indexed knowledge bases for sovereign productivity.</p>
+                        <div class="tags"><span>Python</span> <span>Local LLMs (Llama-3)</span> <span>Local AI Architecture</span> <span>Automation</span></div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal">
+                    <div class="reveal-item">
+                        <h3>MANTRA Dashboard</h3>
+                        <p>Developed a full-stack, self-hosted productivity and task management dashboard. Architected utilizing Docker for containerized deployment and Budibase for rapid application development. Implements custom workflows, API integrations, and secure self-hosted data persistence.</p>
+                        <div class="tags"><span>Docker</span> <span>Budibase</span> <span>Self-Hosted</span> <span>Productivity Architect</span></div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal">
+                    <div class="reveal-item">
+                        <h3>Dragon Fruit Farm App</h3>
+                        <p>A custom-built Javascript web application to manage the daily operations of an active 8-bigha, 1100-pole commercial dragon fruit farm enterprise. Tracks harvest yields per pole, manages operational logs, monitors inventory, and facilitates direct-to-consumer sales, blending agriculture and scalable tech.</p>
+                        <div class="tags"><span>JavaScript</span> <span>Agri-Tech</span> <span>Business Operations</span> <span>Data Visualisation</span></div>
+                    </div>
+                </div>
+
+                <div class="bento-card reveal">
+                    <div class="reveal-item">
+                        <h3>NanoVolt Systems (Startup)</h3>
+                        <p>Actively bridging QA methodologies with hardware innovation. Transitioning 6+ years of software quality assurance methodologies into hardware verification engineering logs, PCB design prototyping, and Verilog simulation frameworks.</p>
+                        <div class="tags"><span>Verilog</span> <span>PCB Design (KiCad)</span> <span>Hardware Verification</span> <span>Systems Engineering</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education" class="reveal">
+            <h2 class="section-title reveal-item">Education & Credentials</h2>
+            <div class="summary-card reveal-item">
+                <p><strong>ISTQB® Foundation Level Certified Professional (ISTQB-FL)</strong></p>
+                <div style="margin-top: 15px;">
+                    <p><strong>Bachelor of Technology (B.Tech), Electronics and Communication Engineering</strong></p>
+                    <p style="color: var(--text-muted); font-size: 1rem; font-style: italic;">Birla Vishvakarma Mahavidyalaya | January 2015 - January 2020</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <p><strong>Higher Secondary Education (11th & 12th, Science Stream)</strong></p>
+                    <p style="color: var(--text-muted); font-size: 1rem; font-style: italic;">GNSE | 2013 - 2015</p>
+                </div>
+            </div>
         </section>
 
     </div>
 
-    <!-- JavaScript for Scroll Animations -->
     <script>
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
+        // Staggered Scroll Reveal Logic
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
 
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+        // Observer for whole sections (triggers primary reveal)
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Manually trigger staggered child animations if needed for fine control
+                    const children = entry.target.querySelectorAll('.reveal-item');
+                    children.forEach((child, index) => {
+                        child.style.transitionDelay = `${index * 120}ms`; // Adjust stagger speed (120ms)
+                    });
+
+                    //observer.unobserve(entry.target); // Optional: Stop observing after first reveal
+                } else {
+                    entry.target.classList.remove('active'); // Re-trigger entry on scroll-up
                 }
-            }
-        }
-        
-        // Trigger reveal on scroll and on load
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
+            });
+        }, observerOptions);
+
+        // Observer for individual items (e.g., timeline points or tags)
+        const itemObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Stagger items based on their absolute index within the page/section
+                    // This is more complex but more precise
+                    // For simplicity here, we rely on CSS delay handled above or CSS animation delay
+                    entry.target.style.transitionDelay = `${index * 100}ms`; // Example stagger
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { ...observerOptions, threshold: 0.1 });
+
+        // Trigger reveal on elements
+        document.querySelectorAll('.reveal').forEach((el) => {
+            sectionObserver.observe(el);
+        });
+
+        // Trigger reveal on specific children that need individual staggering (like cards)
+        document.querySelectorAll('.bento-card, .timeline-item').forEach((el) => {
+            // If they are inside a reveal section, they are handled above, 
+            // but if they are observed individually:
+            //sectionObserver.observe(el); 
+        });
     </script>
 </body>
 </html>
