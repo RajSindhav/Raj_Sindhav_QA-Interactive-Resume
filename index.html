@@ -4,103 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raj Sindhav - Interactive Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f4f4f9;
-            --text-color: #333;
-            --accent-color: #0056b3;
-            --card-bg: #fff;
-            --border-color: #ddd;
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --text-main: #ffffff;
+            --text-muted: #e0e0e0;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
         }
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --accent-color: #4da3ff;
-            --card-bg: #1e1e1e;
-            --border-color: #333;
-        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-main);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
+            /* Animated Gradient Background */
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         header {
-            background-color: var(--card-bg);
-            padding: 2rem;
             text-align: center;
-            border-bottom: 1px solid var(--border-color);
+            padding: 4rem 1rem 3rem;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.9), transparent);
         }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: text-shadow 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            text-shadow: 0 0 8px var(--primary);
+        }
+
         .container {
             max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
         }
-        h1 { margin: 0; color: var(--accent-color); text-transform: uppercase; }
-        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-top: 1.5rem; }
-        h3 { margin-bottom: 0.2rem; }
-        .contact-info { margin-top: 10px; font-size: 0.95rem; }
-        .contact-info a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+
+        /* Glassmorphism Cards */
         .section-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .job-title { font-weight: bold; font-size: 1.1rem; color: var(--accent-color); }
-        .job-meta { font-size: 0.9rem; color: #666; margin-bottom: 0.8rem; font-style: italic; }
-        [data-theme="dark"] .job-meta { color: #aaa; }
-        .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--accent-color);
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
             color: #fff;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            font-weight: bold;
         }
-        .skills-group { margin-bottom: 1rem; }
-        .skills-group strong { display: block; margin-bottom: 0.5rem; }
+
+        /* Lists and Typography */
+        ul { margin-top: 1rem; padding-left: 1.2rem; }
+        li { margin-bottom: 0.8rem; color: var(--text-muted); }
+        strong { color: #fff; font-weight: 600; }
+        
+        .job-title { font-weight: 600; font-size: 1.2rem; color: var(--primary); margin-top: 1.5rem; }
+        .job-meta { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; font-style: italic; opacity: 0.8; }
+
+        /* Skill Tags */
+        .skills-group { margin-bottom: 1.5rem; }
+        .skills-group strong { display: block; margin-bottom: 0.8rem; font-size: 1.1rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .tags span {
-            background: var(--border-color);
-            padding: 4px 10px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.85rem;
-            margin-right: 5px;
-            margin-bottom: 8px;
-            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: default;
         }
-        ul { margin-top: 0; padding-left: 1.2rem; }
+        .tags span:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
-
-    <header>
+    <header class="reveal">
         <h1>RAJ SINDHAV</h1>
-        <p><strong>Senior QA Engineer | AI-Enhanced Testing | ISTQB Certified</strong></p>
+        <div class="subtitle">Senior QA Engineer | AI-Enhanced Testing | ISTQB Certified</div>
         <div class="contact-info">
-            <span>Ahmedabad, Gujarat, India</span> | 
-            <a href="mailto:rajsindhav77@gmail.com">rajsindhav77@gmail.com</a> | 
-            <span>+91 9825253982</span> | 
-            <a href="https://www.linkedin.com/in/rajsindhav" target="_blank">LinkedIn</a>
+            <span>📍 Ahmedabad, India</span>
+            <a href="mailto:rajsindhav77@gmail.com">✉️ rajsindhav77@gmail.com</a>
+            <span>📞 +91 9825253982</span>
+            <a href="https://www.linkedin.com/in/rajsindhav" target="_blank">🔗 LinkedIn</a>
         </div>
     </header>
 
     <div class="container">
         
-        <section class="section-card">
+        <section class="section-card reveal">
             <h2>Professional Summary</h2>
-            <p>ISTQB Certified Senior QA Engineer with 6+ years of experience, currently focused on integrating Generative AI into software testing workflows to maximize efficiency and coverage. I combine traditional testing methodologies with AI-driven strategies to accelerate the Software Testing Life Cycle (STLC).</p>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">ISTQB Certified Senior QA Engineer with 6+ years of experience, currently focused on integrating Generative AI into software testing workflows to maximize efficiency and coverage. I combine traditional testing methodologies with AI-driven strategies to accelerate the Software Testing Life Cycle (STLC).</p>
             <p><strong>How I Deliver Value:</strong></p>
             <ul>
                 <li><strong>AI-Assisted Testing:</strong> Leveraging LLMs to rapidly generate test scenarios, edge cases, and sample data, reducing test design time significantly.</li>
@@ -108,11 +173,10 @@
                 <li><strong>Leadership:</strong> Proven track record as a Team Lead, mentoring teams on adopting modern tools to improve defect detection rates.</li>
                 <li><strong>Domain Knowledge:</strong> Specialized experience in Healthcare IT (Electronic Medical Records) and Fintech.</li>
             </ul>
-            <p><em>I believe AI isn't replacing testers; it's empowering those who use it to deliver higher quality software, faster.</em></p>
         </section>
 
-        <section class="section-card">
-            <h2>Technical Skills</h2>
+        <section class="section-card reveal">
+            <h2>Technical Edge</h2>
             
             <div class="skills-group">
                 <strong>Top Skills & AI Prompt Engineering</strong>
@@ -131,69 +195,70 @@
             <div class="skills-group">
                 <strong>Tools & Domains</strong>
                 <div class="tags">
-                    <span>Jira</span> <span>TestComplete basics</span> <span>Playwright Codex basics</span> <span>Sourcetree</span> <span>Bitbucket</span> <span>Electronic Medical Record (EMR)</span>
+                    <span>Jira</span> <span>TestComplete basics</span> <span>Playwright Codex basics</span> <span>Sourcetree</span> <span>Bitbucket</span> <span>EMR Systems</span>
                 </div>
             </div>
         </section>
 
-        <section class="section-card">
-            <h2>Experience</h2>
+        <section class="section-card reveal">
+            <h2>Experience Archive</h2>
             
-            <div style="margin-bottom: 1.5rem;">
+            <div>
                 <div class="job-title">QA Software Tester | eClinicalWorks</div>
-                <div class="job-meta">Ahmedabad, Gujarat, India | April 2023 - Present (3 years)</div>
+                <div class="job-meta">Ahmedabad, Gujarat, India | April 2023 - Present</div>
                 <ul>
                     <li>Specialized in Healthcare IT, validating Electronic Medical Record (EMR) systems.</li>
                     <li>Integrated modern QA workflows to ensure high reliability and compliance in healthcare software.</li>
                 </ul>
             </div>
 
-            <div style="margin-bottom: 1.5rem;">
+            <div>
                 <div class="job-title">Software QA Team Lead (Manual) | SpryBit</div>
-                <div class="job-meta">Ahmedabad, Gujarat, India | January 2022 - March 2023 (1 year 3 months)</div>
+                <div class="job-meta">Ahmedabad, Gujarat, India | Jan 2022 - March 2023</div>
                 <ul>
                     <li>Led QA teams and mentored members on adopting modern tools to improve defect detection rates.</li>
-                    <li>Promoted from Software Test Engineer (Jan 2022) to Sr. Quality Analyst (Jul 2022), and ultimately to Team Lead, demonstrating rapid mastery of test strategies.</li>
+                    <li>Promoted from Software Test Engineer to Sr. Quality Analyst, and ultimately to Team Lead, demonstrating rapid mastery of test strategies.</li>
                 </ul>
             </div>
 
-            <div style="margin-bottom: 1.5rem;">
+            <div>
                 <div class="job-title">Software Test Engineer | StayinFront</div>
-                <div class="job-meta">Gandhinagar, Gujarat, India | September 2020 - January 2022 (1 year 5 months)</div>
+                <div class="job-meta">Gandhinagar, Gujarat, India | Sept 2020 - Jan 2022</div>
                 <ul>
                     <li>Transitioned from Trainee to full Test Engineer, driving functional and blackbox testing across mobile (Android/iOS) and web platforms.</li>
                 </ul>
             </div>
-
-            <div style="margin-bottom: 0.5rem;">
-                <div class="job-title">Quality Assurance Engineer | CRB Tech Solutions Pvt. Ltd</div>
-                <div class="job-meta">Ahmedabad Area, India | November 2019 - February 2020 (4 months)</div>
-                <ul><li>Corporate Training</li></ul>
-            </div>
-            
         </section>
 
-        <section class="section-card">
-            <h2>Education & Certifications</h2>
+        <section class="section-card reveal">
+            <h2>Education & Credentials</h2>
             <ul>
                 <li><strong>ISTQB® Foundation Level Certified</strong></li>
                 <li><strong>Bachelor's degree, Electronics and Communication</strong> - Birla Vishvakarma Mahavidyalaya (Jan 2015 - Jan 2020)</li>
-                <li><strong>11th and 12th, Science</strong> - GNSE (2013 - 2015)</li>
-                <li><strong>10th, Gujarat board</strong> - Shree Swaminarayan Vidhyalaya (2011 - 2012)</li>
+                <li><strong>Higher Secondary (Science)</strong> - GNSE (2013 - 2015)</li>
             </ul>
         </section>
 
     </div>
 
+    <!-- JavaScript for Scroll Animations -->
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
             }
         }
+        
+        // Trigger reveal on scroll and on load
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal);
     </script>
 </body>
 </html>
