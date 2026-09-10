@@ -1,25 +1,24 @@
-# 📄 Interactive Web Resume
+# 📄 Interactive QA Engineering Resume
 
 ### Overview
-A custom-built, interactive web resume designed to showcase my professional background as a Software QA Tester and my broader engineering projects. This repository serves as a live portfolio, moving beyond a standard PDF to demonstrate practical frontend web development skills.
+A custom-built, interactive web resume designed to showcase my professional background as a Senior Software QA Engineer. This repository serves as a live portfolio, moving beyond a standard PDF to provide a clean, accessible, and dynamic overview of my career, skills, and certifications.
 
-### 🚀 Highlights Included in the Resume
-*   **Professional Experience:** 5+ years of software quality assurance, manual testing, and bug hunting.
-*   **Systems & AI Engineering:** Details on my work building local offline-first AI systems (VEDA) and self-hosted productivity dashboards (MANTRA).
-*   **Hardware Innovation:** My ongoing transition into semiconductor ecosystems, PCB design prototyping, and the founding of NanoVolt Systems.
-*   **Diverse Skillset:** A unique blend of technical architecture, agricultural business management, and design aesthetics.
-
-### 🛠️ Tech Stack
-*   **Structure:** HTML5
-*   **Styling:** CSS3 (Responsive layouts and custom design elements)
-*   **Interactivity:** Vanilla JavaScript
+### 🚀 Highlights Included
+*   **AI-Enhanced Testing Focus:** Details on my strategies for leveraging Generative AI and prompt engineering to accelerate test case generation and the STLC.
+*   **Professional Experience:** 6+ years of software quality assurance, including leadership roles and specialization in Healthcare IT and Fintech domains.
+*   **Technical Stack:** A structured breakdown of my automation, manual testing, and API validation toolset.
 
 ### 🌐 Live Preview
-You can view the live interactive resume here: 
-**[https://rajsindhav.github.io/Raj_Sindhav_QA-Interactive-Resume/]**
+You can view the live interactive version of this resume here: 
+**[Paste your GitHub Pages link here, e.g., https://rajsindhav.github.io/Raj_Sindhav_QA/]**
+
+### 🛠️ Built With
+*   **HTML5:** Semantic structure for accessibility.
+*   **CSS3:** Custom styling featuring a dynamic Light/Dark mode toggle.
+*   **Vanilla JavaScript:** Theme toggling functionality.
 
 ### ⚙️ Local Setup
-To run this project locally:
+To run this project locally on your machine:
 1. Clone the repository: `git clone https://github.com/RajSindhav/Raj_Sindhav_QA.git`
 2. Navigate to the project folder.
 3. Open `index.html` in your preferred web browser.
