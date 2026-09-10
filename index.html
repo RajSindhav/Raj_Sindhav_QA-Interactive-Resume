@@ -1,13 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj - Interactive Resume</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --accent-color: #0056b3;
+            --card-bg: #fff;
+            --border-color: #ddd;
+        }
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #4da3ff;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background 0.3s, color 0.3s;
+        }
+        header {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        h1 { margin: 0; color: var(--accent-color); }
+        h2 { border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+        .contact-info a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+        .section-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .project-title { font-weight: bold; font-size: 1.1rem; }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .tags span {
+            background: var(--border-color);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        ul { margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
 
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+
+    <header>
+        <h1>Raj</h1>
+        <p>ISTQB-FL Certified QA Professional | Systems Engineer</p>
+        <div class="contact-info">
+            <a href="https://github.com/RajSindhav" target="_blank">GitHub</a> | 
+            <a href="https://twitter.com/Raj_Sindhav7" target="_blank">Twitter</a> | 
+            <span>Gandhidham, Gujarat, India</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section-card">
+            <h2>Profile Overview</h2>
+            <p>Multifaceted engineer with 5+ years in Software Quality Assurance, specializing in manual and AI-enhanced testing. Expanding boundaries by building offline-first AI agents, engineering hardware solutions via NanoVolt Systems, and integrating technical architectures with design principles.</p>
+        </section>
+
+        <section class="section-card">
+            <h2>QA & Testing Expertise</h2>
+            <ul>
+                <li><strong>UI Automation:</strong> Selenium WebDriver, Cypress, Playwright</li>
+                <li><strong>API & Backend:</strong> Postman, REST Assured, Swagger</li>
+                <li><strong>Test Management:</strong> Jira, Zephyr, TestRail</li>
+                <li><strong>Methodologies:</strong> Agile/Scrum, BDD/TDD, Regression & Integration Testing</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>Experience & Ventures</h2>
+            <ul>
+                <li><strong>Software QA Tester:</strong> Driving quality via rigorous API, integration, and UI testing. Ensuring software reliability with automated and manual strategies.</li>
+                <li><strong>NanoVolt Systems (Startup):</strong> Focusing on intelligent electronics, PCB design, and VLSI verification workflows.</li>
+                <li><strong>Agricultural Operations:</strong> Scaled and managed an 8-bigha dragon fruit farming enterprise across 1100 poles, implementing custom JS software for harvest and D2C sales tracking.</li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>Technical Projects</h2>
+            <div style="margin-bottom: 1rem;">
+                <span class="project-title">VEDA - Offline AI Agent</span>
+                <p>Architected a hardware-sovereign AI assistant operating entirely offline using Python and local LLMs, customized for advanced voice recognition and task automation.</p>
+                <div class="tags"><span>Python</span> <span>Local LLMs</span> <span>Automation</span></div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <span class="project-title">MANTRA - Productivity Dashboard</span>
+                <p>Developed a self-hosted, spiritual-tech themed task management dashboard deployed utilizing Docker and Budibase for a no-code, seamless organization flow.</p>
+                <div class="tags"><span>Docker</span> <span>Budibase</span> <span>Self-Hosted</span></div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h2>Broader Technical Stack</h2>
+            <div class="tags">
+                <span>JavaScript</span> <span>HTML/CSS</span> <span>Python</span>
+                <span>Verilog</span> <span>PCB Design</span> <span>Docker</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
